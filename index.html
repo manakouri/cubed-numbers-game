@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Cube Number Quiz&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: 'Inter', sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.feedback-correct {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #22c55e; /* green-500 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.feedback-incorrect {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #ef4444; /* red-500 */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: white;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 1rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>transition: all 0.3s ease-in-out;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body class="bg-gray-100 flex items-center justify-center min-h-screen"&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="quiz-container" class="card w-full max-w-md text-center"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 class="text-3xl font-bold text-gray-800 mb-2"&gt;Cube Number Challenge&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="text-gray-600 mb-6"&gt;What is the value of...&lt;/p&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="question-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="question-text" class="text-5xl font-bold text-indigo-600 mb-6 h-16"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="mt-4"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;input type="number" id="answer-input" class="w-full px-4 py-3 text-lg border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition" placeholder="Enter your answer..."&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="submit-btn" class="w-full mt-4 bg-indigo-600 text-white font-bold py-3 px-4 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-transform transform hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Submit Answer</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="result-area" class="hidden"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;h2 class="text-2xl font-bold text-gray-800 mb-4"&gt;Quiz Complete!&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p class="text-lg text-gray-600 mb-2"&gt;Your score:&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;p id="score-text" class="text-4xl font-bold text-indigo-600 mb-6"&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;button id="restart-btn" class="w-full bg-green-500 text-white font-bold py-3 px-4 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-transform transform hover:scale-105"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>Play Again</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div id="feedback-text" class="mt-4 h-6 text-lg font-medium"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- DOM Element References ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questionText = document.getElementById('question-text');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const answerInput = document.getElementById('answer-input');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const submitBtn = document.getElementById('submit-btn');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const feedbackText = document.getElementById('feedback-text');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const quizContainer = document.getElementById('quiz-container');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questionArea = document.getElementById('question-area');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const resultArea = document.getElementById('result-area');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const scoreText = document.getElementById('score-text');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const restartBtn = document.getElementById('restart-btn');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Quiz Data ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>const questions = [</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ question: "1³", answer: 1 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ question: "2³", answer: 8 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ question: "3³", answer: 27 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ question: "4³", answer: 64 },</p>
+<p class="p1"><span class="Apple-converted-space">            </span>{ question: "5³", answer: 125 }</p>
+<p class="p1"><span class="Apple-converted-space">        </span>];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Quiz State ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let shuffledQuestions = [];</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let currentQuestionIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>let score = 0;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Functions ---</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Shuffles an array in place using the Fisher-Yates algorithm.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* @param {Array} array The array to shuffle.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function shuffleArray(array) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>for (let i = array.length - 1; i &gt; 0; i--) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>const j = Math.floor(Math.random() * (i + 1));</p>
+<p class="p1"><span class="Apple-converted-space">                </span>[array[i], array[j]] = [array[j], array[i]];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Starts or restarts the quiz.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function startQuiz() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Reset state</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestionIndex = 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>score = 0;</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Shuffle questions and start</p>
+<p class="p1"><span class="Apple-converted-space">            </span>shuffledQuestions = [...questions];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>shuffleArray(shuffledQuestions);</p>
+<p class="p2"><span class="Apple-converted-space">            </span></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Reset UI</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultArea.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionArea.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackText.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>answerInput.value = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>displayQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Displays the current question to the user.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function displayQuestion() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (currentQuestionIndex &lt; shuffledQuestions.length) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>questionText.textContent = shuffledQuestions[currentQuestionIndex].question;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answerInput.focus();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>// End of the quiz</p>
+<p class="p1"><span class="Apple-converted-space">                </span>showResults();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Shows the final results and the option to restart.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function showResults() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>questionArea.classList.add('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>resultArea.classList.remove('hidden');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>scoreText.textContent = `${score} / ${questions.length}`;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>/**</p>
+<p class="p1"><span class="Apple-converted-space">         </span>* Checks the user's submitted answer against the correct one.</p>
+<p class="p1"><span class="Apple-converted-space">         </span>*/</p>
+<p class="p1"><span class="Apple-converted-space">        </span>function checkAnswer() {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const userAnswer = parseInt(answerInput.value, 10);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const correctAnswer = shuffledQuestions[currentQuestionIndex].answer;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Clear previous feedback</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackText.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>feedbackText.classList.remove('feedback-correct', 'feedback-incorrect');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (isNaN(userAnswer)) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.textContent = "Please enter a number.";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.classList.add('feedback-incorrect');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (userAnswer === correctAnswer) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.textContent = "Correct!";</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.classList.add('feedback-correct');</p>
+<p class="p1"><span class="Apple-converted-space">                </span>score++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.textContent = `Incorrect. The answer was ${correctAnswer}.`;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.classList.add('feedback-incorrect');</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Move to the next question after a short delay</p>
+<p class="p1"><span class="Apple-converted-space">            </span>currentQuestionIndex++;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>feedbackText.textContent = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>answerInput.value = '';</p>
+<p class="p1"><span class="Apple-converted-space">                </span>displayQuestion();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}, 1500);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Event Listeners ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>submitBtn.addEventListener('click', checkAnswer);</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// Allow pressing Enter to submit</p>
+<p class="p1"><span class="Apple-converted-space">        </span>answerInput.addEventListener('keyup', (event) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (event.key === 'Enter') {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>checkAnswer();</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>restartBtn.addEventListener('click', startQuiz);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>// --- Initial Load ---</p>
+<p class="p1"><span class="Apple-converted-space">        </span>window.onload = startQuiz;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
